@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "deploy"
+version = "0.1.0"
+description = "Video FastAPI deployment kubernetes"
+authors = ["martinetoering <martine.toering@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "0.27.1"
+fastapi = "0.109.2"
+python-multipart = "0.0.9"
+onnxruntime = "1.17.0"
+torch = "2.1.1"
+torchvision = "0.16.1"
+pytorchvideo = "0.1.5"
+streamlit = "1.31.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.2.1"
+flake8 = "~4.0.1"
+mypy = "^1.1.1"
+isort = "^5.11.4"
+pre-commit = "^3.0.1"
+wemake-python-styleguide = "^0.17.0"
+black = "^22.12.0"
+autoflake = "^1.6.1"
+pytest-cov = "^4.0.0"
+anyio = "^3.6.2"
+pytest-env = "^0.8.1"
+httpx = "^0.23.3"
+types-requests = "^2.31.0.20240218"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+src_paths = ["Kinetics_Project",]
+
+[tool.mypy]
+strict = false
+ignore_missing_imports = true
+allow_subclassing_any = true
+allow_untyped_calls = true
+pretty = true
+show_error_codes = true
+implicit_reexport = true
+allow_untyped_decorators = true
+warn_unused_ignores = false
+warn_return_any = false
+namespace_packages = true
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
