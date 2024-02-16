@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: videopredict-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: videopredict-deploy
+  template:
+    metadata:
+      labels:
+        app: videopredict-deploy
+    spec:
+      containers:
+      - name: videopredict-deploy
+        imagePullPolicy: Never
+        image: martinetoering/videopredict_deploy:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: videopredict-service
+spec:
+  selector:
+    app: videopredict-deploy
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: NodePort
